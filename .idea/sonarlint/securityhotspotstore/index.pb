@@ -13,8 +13,6 @@ rproduct-service/product-service/src/test/java/com/randomTechie/product_service/
 pproduct-service/product-service/src/main/java/com/randomTechie/product_service/controller/ProductController.java,7\d\7d39a90f6d5706e4738bca55e4e49d552474cefc
 ù
 mproduct-service/product-service/src/main/java/com/randomTechie/product_service/ProductServiceApplication.java,6\3\6329f450e268f44e31a6b7aa39cd2508d9aea391
-≠
-}product-service/product-service/src/test/java/com/randomTechie/product_service/controller/ProductServiceApplicationTests.java,a\0\a0dc908f39d78480f3e0a345593c1274806ca96f
 §
 tproduct-service/product-service/src/test/java/com/randomTechie/product_service/controller/ProductControllerTest.java,f\4\f4403e0b9b1f0af4109a762d0b4f7caf3cee53d2
 W
@@ -27,8 +25,6 @@ W
 nproduct-service/product-service/src/test/java/com/randomTechie/product_service/service/ProductServiceTest.java,5\5\551b3f9c6459f9b70c02323a03e7979e93ec6ecb
 ö
 jproduct-service/product-service/src/main/java/com/randomTechie/product_service/service/ProductService.java,6\d\6d409585de462b5c2ec15ae2f734c1b51987647f
-°
-qproduct-service/product-service/src/test/java/com/randomTechie/product_service/service/ProductControllerTest.java,b\6\b6430015323f48fe506e5ba113442bebef641b59
 †
 pproduct-service/product-service/src/main/java/com/randomTechie/product_service/repository/ProductRepository.java,5\0\50606a705119721b2e80e4a542ff6752b0f84e24
 ë
@@ -39,8 +35,6 @@ eproduct-service/product-service/src/test/java/com/randomTechie/product_service/
 fproduct-service/product-service/src/main/java/com/randomTechie/product_service/dto/ProductRequest.java,8\9\891eda89c507ad551ce0fa90a9ed8f786a151f9b
 ó
 gproduct-service/product-service/src/main/java/com/randomTechie/product_service/dto/ProductResponse.java,d\e\de92f541c880ca30349776cc301256e250ee40e0
-ù
-mproduct-service/product-service/src/test/java/com/randomTechie/product_service/dto/ProductControllerTest.java,5\0\507269df062425a9f300dbffead06548cccc5b0f
 ö
 jproduct-service/product-service/src/test/java/com/randomTechie/product_service/dto/ProductRequestTest.java,8\0\8073965faaf581f5bce1f6e9d0272d73c80572a6
 õ
