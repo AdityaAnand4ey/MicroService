@@ -10,18 +10,18 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.Collections;
+import java.math.BigDecimal;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.hamcrest.Matchers.*;
 
 @WebMvcTest(ProductController.class)
-public class ProductControllerTest {
+class ProductControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -30,30 +30,23 @@ public class ProductControllerTest {
 	private ProductService productService;
 
 	@Test
-	public void testCreateProduct() throws Exception {
-		ProductRequest productRequest = new ProductRequest();
+	void shouldCreateProduct() throws Exception {
+		ProductRequest productRequest = new ProductRequest("Product1", "Description1", BigDecimal.valueOf(100));
 
-		mockMvc.perform(MockMvcRequestBuilders.post("/api/product")
+		mockMvc.perform(post("/api/product")
 						.contentType(MediaType.APPLICATION_JSON)
-						.content("{\"field1\":\"value1\", \"field2\":\"value2\"}"))
+						.content("{\"name\":\"Product1\",\"description\":\"Description1\",\"price\":100}"))
 				.andExpect(status().isCreated());
 	}
 
 	@Test
-	public void testGetAllProducts() throws Exception {
-		ProductResponse productResponse1 = new ProductResponse();
-		ProductResponse productResponse2 = new ProductResponse();
+	void shouldReturnAllProducts() throws Exception {
+		ProductResponse productResponse = new ProductResponse("1", "Product1", "Description1", BigDecimal.valueOf(100));
+		Mockito.when(productService.getAllProducts()).thenReturn(Collections.singletonList(productResponse));
 
-		List<ProductResponse> productResponses = Arrays.asList(productResponse1, productResponse2);
-
-		Mockito.when(productService.getAllProducts()).thenReturn(productResponses);
-
-		mockMvc.perform(MockMvcRequestBuilders.get("/api/product")
-						.accept(MediaType.APPLICATION_JSON))
+		mockMvc.perform(get("/api/product"))
 				.andExpect(status().isOk())
-				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
-				.andExpect(jsonPath("$", hasSize(2)))
-				.andExpect(jsonPath("$[0].field1", is("value1")))
-				.andExpect(jsonPath("$[1].field2", is("value2")));
+				.andExpect(jsonPath("$", hasSize(1)))
+				.andExpect(jsonPath("$[0].name", is("Product1")));
 	}
 }
